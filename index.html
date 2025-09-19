@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit - Groceries, Delivered in Minutes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo and Delivery Location -->
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="flex items-center space-x-2">
+                        <svg width="35" height="40" viewBox="0 0 102 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60.536 10.281C64.336 4.081 72.436 0 79.536 0C92.036 0 101.536 9.5 101.536 22C101.536 31.4 95.836 41.6 86.836 51.5L69.536 71.5C65.536 76.1 63.536 78.4 63.536 82V85.5C63.536 88.3 61.336 90.5 58.536 90.5H41.536C38.736 90.5 36.536 88.3 36.536 85.5V82C36.536 78.5 34.536 76.1 30.536 71.5L13.136 51.5C4.136 41.6 -1.464 31.5 -1.464 22C-1.464 9.5 7.936 0 20.536 0C27.636 0 35.736 4.081 39.536 10.281L43.536 16.381C46.036 19.881 50.536 22 55.536 22C60.536 22 65.036 19.881 67.536 16.381L60.536 10.281Z" fill="#F8E51A"></path><path d="M51.5 116.5C54.3 116.5 56.5 114.3 56.5 111.5V107H46.5V111.5C46.5 114.3 48.7 116.5 51.5 116.5Z" fill="#146532"></path><path d="M51.5 107H36.5V82C36.5 78.5 34.5 76.1 30.5 71.5L13.1 51.5C4.1 41.6 -1.5 31.5 -1.5 22C-1.5 9.5 8 0 20.5 0C27.6 0 35.7 4.1 39.5 10.3L43.5 16.4C46 19.9 50.5 22 55.5 22H51.5V107Z" fill="#208744"></path></svg>
+                        <span class="font-bold text-2xl text-gray-800 hidden md:block">blink<span class="text-green-600">i</span>t</span>
+                    </a>
+                    <div class="hidden lg:flex items-center border-l-2 pl-6">
+                        <div class="font-semibold text-lg">Delivery in 10 minutes</div>
+                        <div class="ml-2 text-gray-500 cursor-pointer flex items-center">
+                            <span>Greater Noida, UP... <i class="fas fa-chevron-down text-sm ml-1"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-grow max-w-xl mx-6 relative items-center">
+                     <i class="fas fa-search text-gray-400 search-icon"></i>
+                    <input type="text" placeholder='Search "milk"' class="w-full bg-gray-100 border border-gray-200 rounded-lg py-3 px-10 focus:outline-none focus:ring-2 focus:ring-green-500 transition">
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-6">
+                    <button class="hidden md:block text-gray-700 font-medium hover:text-green-600 transition">Login</button>
+                    <button class="flex items-center space-x-2 bg-green-600 text-white px-5 py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-md">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="hidden lg:block">My Cart</span>
+                        <span id="cart-count" class="bg-white text-green-600 rounded-full w-5 h-5 text-xs flex items-center justify-center font-bold">0</span>
+                    </button>
+                </div>
+
+                 <!-- Mobile Search Icon -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 text-xl">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Hero Banner -->
+        <section class="mb-12">
+            <div class="bg-yellow-100 rounded-2xl p-6 md:p-12 flex items-center justify-center">
+                <img src="https://placehold.co/1200x300/F3F4F6/333333?text=Super+Saver+Deals!" alt="Promotional Banner" class="rounded-xl w-full h-auto object-cover">
+            </div>
+        </section>
+
+        <!-- Category Grid -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Shop by category</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+                <!-- Category Card -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/EBF5FF/333333?text=Dairy" alt="Dairy & Bread" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Dairy & Bread</h3>
+                    </div>
+                </div>
+                <!-- Repeat for other categories -->
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/E6FFFA/333333?text=Fruits" alt="Fruits" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Fruits</h3>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/FFF5E6/333333?text=Veggies" alt="Vegetables" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Vegetables</h3>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/FEE2E2/333333?text=Snacks" alt="Snacks" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Snacks</h3>
+                    </div>
+                </div>
+                 <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/F0FFF4/333333?text=Cleaning" alt="Cleaning" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Cleaning</h3>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/E9D8FD/333333?text=Personal" alt="Personal Care" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Personal Care</h3>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/FEF3C7/333333?text=Pet" alt="Pet Care" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Pet Care</h3>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-green-500 transition transform hover:-translate-y-1">
+                        <img src="https://placehold.co/200x200/DBEAFE/333333?text=Baby" alt="Baby Care" class="w-full h-auto rounded-lg mb-3">
+                        <h3 class="text-center font-semibold text-gray-700 group-hover:text-green-600">Baby Care</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products -->
+        <section>
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Trending near you</h2>
+            <div class="flex overflow-x-auto space-x-4 pb-4 custom-scrollbar">
+                <!-- Product Card -->
+                <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Milk" alt="Milk" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Fresh Milk 1L</h3>
+                    <p class="text-gray-500 text-sm">1 L</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹58</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+                <!-- Repeat for other products -->
+                <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Bread" alt="Bread" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Whole Wheat Bread</h3>
+                    <p class="text-gray-500 text-sm">400 g</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹45</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Eggs" alt="Eggs" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Farm Fresh Eggs</h3>
+                    <p class="text-gray-500 text-sm">6 pieces</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹72</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Chips" alt="Chips" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Classic Salted Chips</h3>
+                    <p class="text-gray-500 text-sm">90 g</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹20</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+                 <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Cola" alt="Cola" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Cola Drink</h3>
+                    <p class="text-gray-500 text-sm">750 ml</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹40</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-48 bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition">
+                    <img src="https://placehold.co/150x150/F9FAFB/333333?text=Banana" alt="Banana" class="w-full h-32 object-contain rounded-lg mb-3">
+                    <div class="text-xs text-gray-500">10-15 mins</div>
+                    <h3 class="font-semibold text-gray-800 truncate">Fresh Banana</h3>
+                    <p class="text-gray-500 text-sm">500 g</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="font-bold text-lg">₹30</span>
+                        <button class="add-to-cart-btn border border-green-600 text-green-600 font-bold px-4 py-1 rounded-lg hover:bg-green-600 hover:text-white transition">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t mt-12">
+        <div class="container mx-auto px-4 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">Useful Links</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">About</a></li>
+                        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+                        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+                        <li><a href="#" class="hover:text-green-600">Press</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">Categories</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">Vegetables & Fruits</a></li>
+                        <li><a href="#" class="hover:text-green-600">Dairy & Breakfast</a></li>
+                        <li><a href="#" class="hover:text-green-600">Munchies</a></li>
+                        <li><a href="#" class="hover:text-green-600">Cold Drinks & Juices</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">Help</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-green-600">FAQs</a></li>
+                        <li><a href="#" class="hover:text-green-600">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">Download App</h3>
+                     <div class="flex space-x-2">
+                        <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="h-12"></a>
+                        <a href="#"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="h-12"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-gray-500">
+                <p>&copy; 2025 Blink Commerce Pvt. Ltd. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-green-600"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-green-600"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-green-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-green-600"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
