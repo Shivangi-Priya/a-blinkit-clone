@@ -1,0 +1,84 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar for better aesthetics */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c7c7c7;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For Tablets (e.g., screen widths up to 768px) */
+@media (max-width: 768px) {
+    /* Reduce the font size of main section headings for a better fit */
+    h2 {
+        font-size: 1.75rem; /* Equivalent to Tailwind's text-2xl */
+    }
+
+    /* Adjust padding for the main content area */
+    main.container {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    /* Make the cart button a bit smaller on tablets */
+    header .flex-items-center button {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths up to 480px) */
+@media (max-width: 480px) {
+    /* Further reduce heading font size on small screens */
+    h2 {
+        font-size: 1.25rem; /* Equivalent to Tailwind's text-xl */
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust the main header padding */
+    header .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Reduce padding on the hero banner */
+    .mb-12 .rounded-2xl {
+        padding: 1rem;
+    }
+    
+    /* Make product cards slightly more compact */
+    .flex-shrink-0.w-48 {
+        width: 150px; /* Make product cards a bit smaller */
+    }
+
+    /* Center-align the footer content for a cleaner look */
+    footer .text-gray-500, footer .flex.space-x-4 {
+        text-align: center;
+        justify-content: center;
+    }
+}
